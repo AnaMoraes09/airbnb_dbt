@@ -1,0 +1,14 @@
+version: 2
+
+sources:
+  - name: airbnb
+    database: AIRBNB
+    schema: RAW
+    tables:
+      - name: raw_listings
+        description: Dados brutos sobre os imóveis disponíveis na plataforma Airbnb, contendo informações originais sem transformações ou tratamentos.
+
+      - name: raw_reviews
+        description:  Dados brutos sobre avaliações feitas por hóspedes no Airbnb, incluindo feedback e sentimento sem modificações ou tratamentos
+
+      - name: raw_hosts
