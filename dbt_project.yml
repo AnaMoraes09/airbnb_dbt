@@ -1,7 +1,7 @@
-
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
+
 name: 'airbnb_dbt'
 version: '1.0.0'
 
@@ -31,6 +31,12 @@ clean-targets:         # directories to be removed by `dbt clean`
 # files using the `{{ config(...) }}` macro.
 models:
   airbnb_dbt:
-    # Config indicated by + and applies to all files under models/example/
-    example:
-      +materialized: view
+    00_src:
+      +materialized: table
+    01_stg:
+      +materialized: table
+      +schema: silver
+    02_analytics:
+      +materialized: table
+      +schema: gold
+
