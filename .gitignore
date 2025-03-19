@@ -1,7 +1,11 @@
+# Byte-compiled
+__pycache__/
+*.pyc
 
+# Enviroments
+venv/
+
+# dbt
 target/
 dbt_packages/
 logs/
-venv/
-__pycache__/
-*.pyc
