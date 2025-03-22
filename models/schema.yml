@@ -1,0 +1,27 @@
+models:
+  - name: stg_listings
+    columns:
+     
+     - name: listing_id
+       tests:
+         - unique
+         - not_null
+
+     - name: host_id
+       tests:
+         - not_null
+         - relationships:
+             to: ref('stg_hosts')
+             field: host_id
+
+     - name: room_type
+       tests:
+         - accepted_values:
+             values: ['Entire home/apt',
+                      'Private room',
+                      'Shared room',
+                      'Hotel room']
+
+     - name: minimum_nights
+       tests:
+         - positive_value   --Generic test
