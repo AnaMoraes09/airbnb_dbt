@@ -1,5 +1,5 @@
 WITH cte_stg_listings AS (
-    SELECT * FROM {{ ref('raw_listings') }}
+    SELECT * FROM {{ ref('scd_raw_listings') }}
 )
 
 SELECT
@@ -15,5 +15,4 @@ SELECT
     REPLACE(price, '$') :: NUMBER(10,2) AS price,
     created_at,
     updated_at
-FROM
-    cte_stg_listings
+FROM cte_stg_listings WHERE dbt_valid_to is null
